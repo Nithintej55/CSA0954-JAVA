@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class UserNameValidator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the first user name: ");
+        String userName1 = scanner.nextLine();
+        System.out.print("Enter the second user name: ");
+        String userName2 = scanner.nextLine();
+        if (areUsernamesSame(userName1, userName2)) {
+            System.out.println("Valid: Both usernames are the same.");
+        } else {
+            System.out.println("Invalid: The usernames are different.");
+        }
+
+        scanner.close();
+    }
+    private static boolean areUsernamesSame(String userName1, String userName2) {
+        return userName1.equals(userName2);
+    }
+}
