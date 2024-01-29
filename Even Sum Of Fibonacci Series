@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class SumOfFibonacciEvenIndexes {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int N = scanner.nextInt();
+        long sum = calculateSumOfFibonacciEvenIndexes(N);
+        System.out.println("Sum of Fibonacci series numbers at the first " + N + " even indexes: " + sum);
+
+        scanner.close();
+    }
+    private static long calculateSumOfFibonacciEvenIndexes(int N) {
+        long sum = 0;
+        long fibPrev = 0;
+        long fibCurrent = 1;
+
+        for (int i = 0; i < N; i++) {
+            if (i % 2 == 0) {
+                sum += fibCurrent;
+            }
+            long fibNext = fibPrev + fibCurrent;
+            fibPrev = fibCurrent;
+            fibCurrent = fibNext;
+        }
+
+        return sum;
+    }
+}
