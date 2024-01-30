@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+public class ATMBalanceCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] denominations = { 2000, 500, 200, 100 };
+        System.out.println("Denomination Priority:");
+        System.out.println("1. 2000");
+        System.out.println("2. 500");
+        System.out.println("3. 200");
+        System.out.println("4. 100");
+        System.out.print("Enter the priority of denominations (e.g., 2314): ");
+        int priority = scanner.nextInt();
+        System.out.print("Enter the total number of notes for each denomination: ");
+        int[] notes = new int[4];
+        for (int i = 0; i < 4; i++) {
+            System.out.print("Enter the number of " + denominations[i] + " notes: ");
+            notes[i] = scanner.nextInt();
+        }
+        int totalAmount = calculateTotalAmount(denominations, priority, notes);
+        System.out.println("Total amount available in the ATM machine: " + totalAmount);
+        scanner.close();
+    }
+    private static int calculateTotalAmount(int[] denominations, int priority, int[] notes) {
+        int totalAmount = 0;
+        for (int i = 0; i < 4; i++) {
+            int index = (priority % 10) - 1;
+            totalAmount += denominations[index] * notes[index];
+            priority /= 10;
+        }
+        return totalAmount;
+    }
+}
