@@ -7,10 +7,9 @@ public class CollegeUsers {
         int totalUsers = scanner.nextInt();
         System.out.print("Staff Users: ");
         int staffUsers = scanner.nextInt();
-        int studentUsers = totalUsers - staffUsers;
-        int nonTeachingStaffUsers = staffUsers / 3;
+		int nonTeachingStaffUsers = staffUsers / 3;
+        int studentUsers = totalUsers - (staffUsers+nonTeachingStaffUsers);
         System.out.println("Number of Student Users: " + studentUsers);
-        System.out.println("Number of Non-Teaching Staff Users: " + nonTeachingStaffUsers);
 
         scanner.close();
     }
