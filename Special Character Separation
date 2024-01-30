@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class SpecialCharacterSeparation {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a line of text: ");
+        String input = scanner.nextLine();
+        System.out.println("Special characters in the line:");
+        int specialCharacterCount = printSpecialCharacters(input);
+        System.out.println("\nNumber of special characters: " + specialCharacterCount);
+        scanner.close();
+    }
+    private static int printSpecialCharacters(String input) {
+        int count = 0;
+        for (char ch : input.toCharArray()) {
+            if (!Character.isLetterOrDigit(ch) && !Character.isWhitespace(ch)) {
+                System.out.print(ch + " ");
+                count++;
+            }
+        }
+        return count;
+    }
+}
