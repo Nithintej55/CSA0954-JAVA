@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class PrintNumbersWithSkip {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the starting number (M): ");
+        int m = scanner.nextInt();
+        System.out.print("Enter the ending number (N): ");
+        int n = scanner.nextInt();
+        System.out.print("Enter the number to skip (K): ");
+        int k = scanner.nextInt();
+        printNumbersWithSkip(m, n, k);
+        scanner.close();
+    }
+    private static void printNumbersWithSkip(int m, int n, int k) {
+        if (m > n) {
+            System.out.println("Invalid input: Starting number (M) should be less than or equal to ending number (N).");
+            return;
+        }
+        System.out.println("Numbers from " + m + " to " + n + " skipping " + k + " numbers in between:");
+        for (int i = m; i <= n; i += k + 1) {
+            System.out.print(i + " ");
+        }
+        System.out.println(); 
+    }
+}
