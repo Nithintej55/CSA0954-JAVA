@@ -1,0 +1,48 @@
+import java.util.Arrays;
+
+public class MeanMedianMode {
+    public static void main(String[] args) {
+        int[] numbers = {16, 18, 27, 16, 23, 21, 19};
+
+        double mean = calculateMean(numbers);
+
+        double median = calculateMedian(numbers);
+
+        int mode = calculateMode(numbers);
+
+        System.out.println("Mean: " + mean);
+        System.out.println("Median: " + median);
+        System.out.println("Mode: " + mode);
+    }
+
+    private static double calculateMean(int[] numbers) {
+        int sum = 0;
+        for (int number : numbers) {
+            sum += number;
+        }
+        return (double) sum / numbers.length;
+    }
+    private static double calculateMedian(int[] numbers) {
+        Arrays.sort(numbers);
+        if (numbers.length % 2 == 0) {
+            return (numbers[numbers.length / 2 - 1] + numbers[numbers.length / 2]) / 2.0;
+        } else {
+            return numbers[numbers.length / 2];
+        }
+    }
+    private static int calculateMode(int[] numbers) {
+        int maxCount = 0;
+        int mode = 0;
+
+        java.util.HashMap<Integer, Integer> frequencyMap = new java.util.HashMap<>();
+        for (int number : numbers) {
+            int count = frequencyMap.getOrDefault(number, 0) + 1;
+            frequencyMap.put(number, count);
+            if (count > maxCount) {
+                maxCount = count;
+                mode = number;
+            }
+        }
+        return mode;
+    }
+}
