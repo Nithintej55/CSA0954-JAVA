@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class SingleDigitSum {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an N-digit number: ");
+        int nDigitNumber = scanner.nextInt();
+        int singleDigitSum = findSingleDigitSum(nDigitNumber);
+        System.out.println("Sum of digits as a single digit: " + singleDigitSum);
+
+        scanner.close();
+    }
+    private static int findSingleDigitSum(int nDigitNumber) {
+        int sum = 0;
+        while (nDigitNumber > 0) {
+            sum += nDigitNumber % 10;
+            nDigitNumber /= 10;
+        }
+        while (sum > 9) {
+            int tempSum = 0;
+            while (sum > 0) {
+                tempSum += sum % 10;
+                sum /= 10;
+            }
+            sum = tempSum;
+        }
+        return sum;
+    }
+}
