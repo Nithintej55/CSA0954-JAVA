@@ -1,0 +1,17 @@
+import java.util.Scanner;
+
+public class SquareCubeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a decimal number: ");
+        double decimalNumber = scanner.nextDouble();
+
+        double square = Math.pow(decimalNumber, 2);
+        System.out.println("Square of " + decimalNumber + " is: " + square);
+
+        double cube = Math.pow(decimalNumber, 3);
+        System.out.println("Cube of " + decimalNumber + " is: " + cube);
+
+        scanner.close();
+    }
+}
