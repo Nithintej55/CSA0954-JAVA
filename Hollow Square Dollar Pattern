@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class HollowSquareDollarPattern {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number of rows for the hollow square dollar pattern: ");
+        int numRows = scanner.nextInt();
+        printHollowSquareDollarPattern(numRows);
+
+        scanner.close();
+    }
+    private static void printHollowSquareDollarPattern(int numRows) {
+        for (int i = 1; i <= numRows; i++) {
+            for (int j = 1; j <= numRows; j++) {
+                // Print '$' only for the boundary or if it's the first or last column
+                if (i == 1 || i == numRows || j == 1 || j == numRows) {
+                    System.out.print("$ ");
+                } else {
+                    System.out.print("  "); 
+                }
+            }
+            System.out.println();
+        }
+    }
+}
