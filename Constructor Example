@@ -1,0 +1,27 @@
+import java.util.Scanner;
+class Superclass {
+    int parameter;
+    Superclass(int parameter) {
+        this.parameter = parameter;
+    }
+    void displayParameter() {
+        System.out.println("Superclass Parameter: " + parameter);
+    }
+}
+class Subclass extends Superclass {
+    int subclassParameter;
+    Subclass(int superclassParameter, int subclassParameter) {
+        super(superclassParameter);
+        this.subclassParameter = subclassParameter;
+    }
+    void displayParameters() {
+        super.displayParameter();
+        System.out.println("Subclass Parameter: " + subclassParameter);
+    }
+}
+public class ConstructorExample {
+    public static void main(String[] args) {
+        Subclass subclassObj = new Subclass(10, 20);
+        subclassObj.displayParameters();
+    }
+}
