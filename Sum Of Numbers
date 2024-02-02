@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class SumOfNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int N = scanner.nextInt();
+        int[] numbers = new int[N];
+        System.out.println("Enter " + N + " numbers:");
+        for (int i = 0; i < N; i++) {
+            System.out.print("Enter number " + (i + 1) + ": ");
+            numbers[i] = scanner.nextInt();
+        }
+        int sum = calculateSum(numbers);
+        System.out.println("Sum of the numbers: " + sum);
+
+        scanner.close();
+    }
+    private static int calculateSum(int[] numbers) {
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+            sum += numbers[i];
+        }
+        return sum;
+    }
+}
